@@ -1,0 +1,10 @@
+#!/bin/bash -e
+
+# Copyright 2015 basebuilder authors. All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+git clone https://github.com/creationix/nvm.git ~/.nvm
+cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+
+echo ". ~/.nvm/nvm.sh" >> ~/.bashrc
