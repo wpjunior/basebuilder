@@ -8,6 +8,20 @@ SOURCE_DIR=/var/lib/tsuru
 source ${SOURCE_DIR}/base/deploy
 source ${SOURCE_DIR}/config
 
+. ~/.nvm/nvm.sh
+
+NODE_VERSION=stable
+
+if [ -f ${CURRENT_DIR}/.node-version ]; then
+    NODE_VERSION=$(cat ${CURRENT_DIR}/.node-version)
+fi
+
+nvm install ${NODE_VERSION}
+nvm use ${NODE_VERSION}
+
+echo "export PATH=${NVM_BIN}:\${PATH}" | tee -a ${HOME}/.profile /etc/profile
+
+
 if [ -f ${CURRENT_DIR}/package.json ]; then
 	if [ -d ${CURRENT_DIR}/node_modules ]; then rm -rf ${CURRENT_DIR}/node_modules ; fi
 	pushd $CURRENT_DIR && npm install --production
