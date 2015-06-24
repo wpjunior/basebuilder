@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -le
 
 # Copyright 2015 basebuilder authors. All rights reserved.
 # Use of this source code is governed by a BSD-style
@@ -13,10 +13,10 @@ NODE_VERSION=stable
 
 if [ -f ${CURRENT_DIR}/.node-version ]; then
     NODE_VERSION=$(cat ${CURRENT_DIR}/.node-version)
-    cp -Rf ${CURRENT_DIR}/.node-version ~/.nvmrc
     nvm install ${NODE_VERSION}
 fi
 
+echo "{NODE_VERSION}" > ~/.nvmrc
 . /etc/nvm/nvm.sh
 
 
