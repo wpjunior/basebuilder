@@ -15,11 +15,15 @@ if [ -f ${CURRENT_DIR}/.node-version ]; then
     NODE_VERSION=$(cat ${CURRENT_DIR}/.node-version)
 fi
 
-nvm install ${NODE_VERSION}
+export NVM_DIR=/home/ubuntu/.nvm
+[ ! -e ${NVM_DIR} ] && mkdir -p ${NVM_DIR}
 
-echo "${NODE_VERSION}" > ~/.nvmrc
 . /etc/nvm/nvm.sh
 
+nvm install ${NODE_VERSION}
+
+rm -f ~/.nvm_bin
+ln -s $NVM_BIN ~/.nvm_bin
 
 if [ -f ${CURRENT_DIR}/package.json ]; then
 	if [ -d ${CURRENT_DIR}/node_modules ]; then rm -rf ${CURRENT_DIR}/node_modules ; fi
