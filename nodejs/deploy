@@ -16,7 +16,7 @@ if [ -f ${CURRENT_DIR}/.node-version ]; then
     nvm install ${NODE_VERSION}
 fi
 
-echo "{NODE_VERSION}" > ~/.nvmrc
+echo "${NODE_VERSION}" > ~/.nvmrc
 . /etc/nvm/nvm.sh
 
 
