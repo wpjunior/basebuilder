@@ -13,8 +13,9 @@ NODE_VERSION=stable
 
 if [ -f ${CURRENT_DIR}/.node-version ]; then
     NODE_VERSION=$(cat ${CURRENT_DIR}/.node-version)
-    nvm install ${NODE_VERSION}
 fi
+
+nvm install ${NODE_VERSION}
 
 echo "${NODE_VERSION}" > ~/.nvmrc
 . /etc/nvm/nvm.sh
