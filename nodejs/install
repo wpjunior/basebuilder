@@ -7,5 +7,7 @@
 git clone https://github.com/creationix/nvm.git ~/.nvm
 cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 
+echo ". ~/.nvm/nvm.sh" | tee -a ${HOME}/.profile /etc/profile
+
 . ~/.nvm/nvm.sh
 nvm install stable
