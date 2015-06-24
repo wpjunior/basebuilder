@@ -17,7 +17,7 @@ if [ -f ${CURRENT_DIR}/.node-version ]; then
     nvm install ${NODE_VERSION}
 fi
 
-. ~/.nvm/nvm.sh
+. /etc/nvm/nvm.sh
 
 
 if [ -f ${CURRENT_DIR}/package.json ]; then
